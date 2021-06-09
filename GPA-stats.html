@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercise #6</title>
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+</head>
+<body>
+	<div id="output"></div>
+	<script>
+        var allGpas = [];
+        var gpa = "";
+        var out = "<h2>Class GPAs</h2>";
+        var total = 0;
+               
+        
+
+        while (gpa != "XXX")
+        {
+            gpa = prompt("Enter a GPA or XXX to Stop");
+            
+            if(gpa != "XXX"){           
+            allGpas.push(+gpa);
+            }
+        }        
+      
+        allGpas.sort();  
+         
+        var length = allGpas.length;    
+             
+        
+        for(var i = 0; i < length; i++)
+        {
+            out += allGpas[i];
+            out += "<br/>";
+            total += allGpas[i];            
+        }       
+        
+        var gpaAve = total / length; 
+
+        var highGpas = [];
+        
+        for(var i = 0; i < length; i++) {
+            if (allGpas[i] > 3.4) {
+                highGpas.push(allGpas[i]);
+            }
+        }
+
+        out += "<h2>Class Average:</h2> " + gpaAve + "<br/>";
+        out += "<h2>Highest GPA:</h2>" + Math.max(...allGpas) + "<br/>";
+        out += "<h2>Lowest GPA:</h2>" + Math.min(...allGpas) + "<br/>";
+        out += "<h2>Outstanding GPAs:</h2>" + highGpas + "<br/>";
+        
+               
+        document.getElementById("output").innerHTML = out;
+
+        
+      
+     </script>
+</body>
+</html>
+
